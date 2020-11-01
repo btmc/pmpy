@@ -3,9 +3,8 @@
 set -e
 
 MODULE=${1:?}
-SCRIPT=${2:?}
-
-ACTION=metrics
+ACTION=${2:?}
+SCRIPT=${3:?}
 
 : ${SCRIPTS_DIR:=$PMPY_SCRIPTS_DIR} \
   ${SCRIPTS_DIR:?}
@@ -18,5 +17,6 @@ then
                            $SCRIPT
 fi
 
-   $SCRIPTS_DIR/send_$ACTION.sh  $MODULE \
-                                 $SCRIPT
+   $SCRIPTS_DIR/send.sh    $MODULE \
+                           $ACTION \
+                           $SCRIPT

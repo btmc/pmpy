@@ -9,7 +9,8 @@ RUN     apk add   --no-cache \
 
 ENV     PMPY_SCRIPTS_DIR=/pmpy/scripts \
         PMPY_MODULES_DIR=/pmpy/modules \
-        PMPY_RESULTS_DIR=/pmpy/results \
+        PMPY_RESULTS_DIR=/data/results \
+        PMPY_STORAGE_DIR=/data/storage \
                                        \
         PMPY_MODULES_PARALLELISM=3     \
         PMPY_ACTIONS_PARALLELISM=3     \
