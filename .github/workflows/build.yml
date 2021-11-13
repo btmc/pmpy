@@ -10,18 +10,4 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - uses: actions/checkout@v2
-
-    - run: |
-        docker login -u  ${{ github.repository_owner }} \
-                     -p "${{ github.token }}" \
-                         ghcr.io
-
-        sed -i /^FROM\ /'a\
-        \
-        LABEL org.opencontainers.image.source="https://github.com/${{ github.repository }}"
-        ' dockerfile
-
-        docker build -t  ghcr.io/${{ github.repository}}:${{ github.ref_name }} .
-        
-        docker push      ghcr.io/${{ github.repository}}:${{ github.ref_name }}
+    - uses: btmc/github-action-docker-build
